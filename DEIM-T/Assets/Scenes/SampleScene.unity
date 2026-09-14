@@ -464,6 +464,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 621ede3058e065f4aba7462e1b7d126c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerManager
+  ciclos: 0
+  lives: 5
 --- !u!136 &869240926
 CapsuleCollider:
   m_ObjectHideFlags: 0

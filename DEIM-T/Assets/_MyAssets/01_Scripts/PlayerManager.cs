@@ -2,112 +2,50 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    //Variable para crear un contador de segundos
-    float timeElapsed;
+    public float moveSpeed;
+    [SerializeField] float desplSpeed;
 
-    //Variables serializadas para poder cambiarlas en Unity
-    [SerializeField] int ciclos = 10;
-    [SerializeField] int lives;
+    //Input System
+    MyInputActions inputActions;
 
-    //Joystick EjeX
+    //Movimiento en X
     float moveX;
-    float limits = 10f; //Límite de desplazamiento por la derecha
 
-    //El método Awake se ejecuta antes que el Start
     private void Awake()
     {
-        //Por si hemos cambiado el número de vidas en Unity
-        lives = 3;
-        
+        inputActions = new MyInputActions();
+
+        inputActions.Player.Fire.started += _ => Shoot();
+
+        inputActions.Player.Movex.performed += ctx => moveX = ctx.ReadValue<float>();
+        inputActions.Player.Movex.canceled += _ => moveX = 0f;
+
+
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Shoot()
     {
-        EjecutarBucle();
+        print("POOOM");
     }
 
-    void EjecutarBucle()
+    private void OnEnable()
     {
-        int n = 0;
-        while (n < 10)
-        {
-            n++;
-            //print(n);
-        }
-
-        for (int i = 0; i < ciclos; i++)
-        {
-            print(i);
-        }
+        inputActions.Enable();
+    }
+    private void OnDisable()
+    {
+        inputActions.Disable();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        //Contador de tiempo
-        Contador();
-
-        //Si estoy dentro del límite, me muevo
-        bool estoyEnElLimite = CheckLimits();
-        if(estoyEnElLimite == true)
-        {
-            MovePlayer();
-        }
-        // El siguiente código hace lo mismo pero con menos código
-        if(CheckLimits())
-        {
-            MovePlayer();
-        }
+        moveSpeed = 30f;
+        desplSpeed = 5f;
+  
     }
-    //Ejemplo de método que retorna un valor booleano en este caso
-    bool CheckLimits()
+    private void Update()
     {
-        //Booleana que retornaré
-        bool inLimits;
-        //Mo posición en X
-        float posX = transform.position.x;
-        //Comprobación
-        if (posX > limits && moveX > 0)
-        {
-            //transform.position = new Vector3(limitR, 0f, 0f);
-            inLimits = false;
 
-        }
-        else if (posX < -limits && moveX < 0)
-        {
-            //transform.position = new Vector3(-limits, 0f, 0f);
-            inLimits = false;
-        }
-        else
-        {
-            inLimits = true;
-        }
-
-        return inLimits;
-
-        //Un ejemplo de cómo hacerlo con menos código
-        /*
-        if (posX > limitR && moveX > 0 || posX < limitL && moveX < 0)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-        */
-    }
-
-    void MovePlayer()
-    {
-        //Aquí irá el movimiento
-    }
-
-    void Contador()
-    {
-        timeElapsed = Time.time;
-        float timeRounded = Mathf.Round((timeElapsed * 100)) / 100;
-        print("Tiempo transcurrido: " + timeRounded);
+        transform.Translate(Vector3.right * desplSpeed *  Time.deltaTime * moveX);
     }
 }

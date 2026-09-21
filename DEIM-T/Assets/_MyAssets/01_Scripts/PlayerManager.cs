@@ -33,6 +33,37 @@ public class PlayerManager : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        moveSpeed = 30f;
+        desplSpeed = 5f;
+
+    }
+    private void Update()
+    {
+        MovePlayer();
+    }
+
+    void MovePlayer()
+    {
+        if(CheckLimitsX() == true)
+        {
+            //Movimiento izquierda derecha
+            Vector3 desplX = Vector3.right * desplSpeed * Time.deltaTime * moveX;
+            transform.Translate(desplX,Space.World);
+
+        }
+        //Rotación
+        transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime * rotation * -360f);
+    }
+
+    bool CheckLimitsX()
+    {
+        bool inLimit = true;
+
+        return inLimit;
+    }
+
     void Shoot()
     {
         print("POOOM");
@@ -47,17 +78,5 @@ public class PlayerManager : MonoBehaviour
         inputActions.Disable();
     }
 
-    private void Start()
-    {
-        moveSpeed = 30f;
-        desplSpeed = 5f;
-  
-    }
-    private void Update()
-    {
-        //Movimiento izquierda derecha
-        transform.Translate(Vector3.right * desplSpeed *  Time.deltaTime * moveX);
-        //Rotación
-        transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime * rotation * -360f);
-    }
+
 }

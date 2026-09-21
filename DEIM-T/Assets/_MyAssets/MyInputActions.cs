@@ -118,6 +118,15 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MoveY"",
+                    ""type"": ""Value"",
+                    ""id"": ""6b8af7a8-c2d9-4778-a5af-5d90ce7017f4"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -186,6 +195,17 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Rotar"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""68c436f9-a2a7-488b-912b-e38f54635405"",
+                    ""path"": ""<Gamepad>/leftStick/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveY"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -197,6 +217,7 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
         m_Player_Movex = m_Player.FindAction("Movex", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_Rotar = m_Player.FindAction("Rotar", throwIfNotFound: true);
+        m_Player_MoveY = m_Player.FindAction("MoveY", throwIfNotFound: true);
     }
 
     ~@MyInputActions()
@@ -280,6 +301,7 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Movex;
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_Rotar;
+    private readonly InputAction m_Player_MoveY;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -303,6 +325,10 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Rotar".
         /// </summary>
         public InputAction @Rotar => m_Wrapper.m_Player_Rotar;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/MoveY".
+        /// </summary>
+        public InputAction @MoveY => m_Wrapper.m_Player_MoveY;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -338,6 +364,9 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
             @Rotar.started += instance.OnRotar;
             @Rotar.performed += instance.OnRotar;
             @Rotar.canceled += instance.OnRotar;
+            @MoveY.started += instance.OnMoveY;
+            @MoveY.performed += instance.OnMoveY;
+            @MoveY.canceled += instance.OnMoveY;
         }
 
         /// <summary>
@@ -358,6 +387,9 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
             @Rotar.started -= instance.OnRotar;
             @Rotar.performed -= instance.OnRotar;
             @Rotar.canceled -= instance.OnRotar;
+            @MoveY.started -= instance.OnMoveY;
+            @MoveY.performed -= instance.OnMoveY;
+            @MoveY.canceled -= instance.OnMoveY;
         }
 
         /// <summary>
@@ -419,5 +451,12 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnRotar(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "MoveY" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMoveY(InputAction.CallbackContext context);
     }
 }

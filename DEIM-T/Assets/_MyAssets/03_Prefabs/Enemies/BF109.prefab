@@ -496,7 +496,7 @@ GameObject:
   - component: {fileID: 1851510636804884119}
   - component: {fileID: 5016174674019473622}
   m_Layer: 0
-  m_Name: Enemy1
+  m_Name: BF109
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -530,3 +530,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 980db64687d2c62429d64f29adee6f5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
+  mySpeed: 60

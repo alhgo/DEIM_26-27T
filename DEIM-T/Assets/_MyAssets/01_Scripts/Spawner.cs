@@ -4,7 +4,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] GameObject enemy;
-    float interval = 0.5f;
+    float interval = 0.1f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,8 +16,10 @@ public class Spawner : MonoBehaviour
     {
         while (true)
         {
-
-            Instantiate(enemy, transform.position, Quaternion.identity);
+            float posX = Random.Range(-100f, 100f);
+            float posY = Random.Range(1f, 20f);
+            Vector3 pos = new Vector3(posX, posY, transform.position.z);
+            Instantiate(enemy, pos, Quaternion.identity);
             yield return new WaitForSeconds(interval); ;
         }
     }

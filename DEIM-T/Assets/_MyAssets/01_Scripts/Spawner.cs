@@ -29,7 +29,7 @@ public class Spawner : MonoBehaviour
         //Necesito saber cuántos enemigos saldrán, es decir, ciclos del bucle
         float n = firstEenemyOffset / distanciaEntreEnemigos;
         //Lo redondeo y lo paso a INT
-        int ciclos = Mathf.FloatToHalf(n);
+        int ciclos = Mathf.FloorToInt(n);
 
         for (int i = 0; i < ciclos; i++) 
         {
@@ -41,10 +41,11 @@ public class Spawner : MonoBehaviour
 
     IEnumerator SpawnEnemy()
     {
+        //El intervalo entre enemigos depende de la velocidad y la distancia entre enemigos
         while (true)
         {
             SacarEnemigo(0f);
-
+            interval = distanciaEntreEnemigos / playerManager.moveSpeed;
             yield return new WaitForSeconds(interval); ;
         }
     }

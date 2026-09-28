@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    public bool alive = true;
+
     public float moveSpeed;
     [SerializeField] float desplSpeed;
 

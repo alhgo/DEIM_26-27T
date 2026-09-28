@@ -599,7 +599,6 @@ GameObject:
   m_Component:
   - component: {fileID: 600686451}
   - component: {fileID: 600686450}
-  - component: {fileID: 600686452}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -619,9 +618,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daf653e628604f94bbfdf704da560762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spawner
-  enemy: {fileID: 7621259198865738399, guid: eb78f97093dd6aa40b9c9b87d2ba8663, type: 3}
+  enemies:
+  - {fileID: 7621259198865738399, guid: eb78f97093dd6aa40b9c9b87d2ba8663, type: 3}
+  - {fileID: 7621259198865738399, guid: eb78f97093dd6aa40b9c9b87d2ba8663, type: 3}
+  - {fileID: 7621259198865738399, guid: cd10165f8a9b8db488be8d0a66123021, type: 3}
+  - {fileID: 7621259198865738399, guid: cd10165f8a9b8db488be8d0a66123021, type: 3}
+  - {fileID: 7621259198865738399, guid: cd10165f8a9b8db488be8d0a66123021, type: 3}
+  - {fileID: 8002476394141082189, guid: bc4af021799c97a4dbca1c3d7d6e360c, type: 3}
   firstEenemyPositionZ: 500
-  distanciaEntreEnemigos: 50
+  distanciaEntreEnemigos: 20
   playerManager: {fileID: 1682226002}
 --- !u!4 &600686451
 Transform:
@@ -638,22 +643,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &600686452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 600686449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: daf653e628604f94bbfdf704da560762, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Spawner
-  enemy: {fileID: 8002476394141082189, guid: bc4af021799c97a4dbca1c3d7d6e360c, type: 3}
-  firstEenemyPositionZ: 200
-  distanciaEntreEnemigos: 200
-  playerManager: {fileID: 1682226002}
 --- !u!1 &961739749
 GameObject:
   m_ObjectHideFlags: 0

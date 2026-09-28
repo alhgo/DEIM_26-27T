@@ -173,7 +173,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.70710707, y: -0, z: -0, w: 0.70710653}
   m_LocalPosition: {x: 0, y: -0.11, z: 0}
-  m_LocalScale: {x: 5.504, y: 0.15991, z: 0.37735847}
+  m_LocalScale: {x: 8.612659, y: 0.15991, z: 0.37735847}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4248453905935341164}
@@ -211,7 +211,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ba9f3214023f3574dbc73aad9b3b978e, type: 2}
+  - {fileID: 2100000, guid: 0cf49957e92f4dd43864fcee01dc207b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -323,7 +323,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ba9f3214023f3574dbc73aad9b3b978e, type: 2}
+  - {fileID: 2100000, guid: 0cf49957e92f4dd43864fcee01dc207b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -438,7 +438,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ba9f3214023f3574dbc73aad9b3b978e, type: 2}
+  - {fileID: 2100000, guid: 0cf49957e92f4dd43864fcee01dc207b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -496,7 +496,7 @@ GameObject:
   - component: {fileID: 1851510636804884119}
   - component: {fileID: 5016174674019473622}
   m_Layer: 0
-  m_Name: BF109
+  m_Name: Stuka
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

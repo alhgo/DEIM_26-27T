@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] GameObject enemy;
+    [SerializeField] GameObject[] enemies;
     float interval = 0.1f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -53,8 +53,9 @@ public class Spawner : MonoBehaviour
     void SacarEnemigo(float offsetZ)
     {
         float posX = Random.Range(-100f, 100f);
-        float posY = Random.Range(1f, 30f);
+        float posY = Random.Range(5f, 50f);
         Vector3 pos = new Vector3(posX, posY, transform.position.z - offsetZ);
-        Instantiate(enemy, pos, Quaternion.identity);
+        int randomKey = Random.Range(0, enemies.Length);
+        Instantiate(enemies[randomKey], pos, Quaternion.identity);
     }
 }
